@@ -1,0 +1,15 @@
+FROM python:3.9.16
+
+WORKDIR /services
+
+RUN apt-get update
+
+RUN pip install --upgrade pip
+
+RUN pip install requests
+
+RUN pip install influxdb-client
+
+COPY analitica/script.py analitica/
+
+CMD ["python", "analitica/script.py"]

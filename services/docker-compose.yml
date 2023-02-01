@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  script:
+    container_name: script
+    image: script_image
+    build:
+      context: .
+      dockerfile: analitica/dockerfile
+
+
+  database:   
+    container_name: influxdb
+    image: influxdb
+    restart: always
+    ports:
+        - "8086:8086"
+    build:
+      context: .
+      dockerfile: influxdb/dockerfile
+    networks:
+      default:
+        aliases:
+          - influxdb
+
+  visualizador:   
+    container_name: grafana
+    image: grafana
+    restart: always
+    ports:
+        - "3000:3000"
+    build:
+      context: .
+      dockerfile: grafana/dockerfile
+
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.29.0.0/24

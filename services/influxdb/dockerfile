@@ -1,0 +1,11 @@
+FROM influxdb:latest
+VOLUME ./data/influxdb/data:/var/lib/influxdb2
+
+VOLUME ./data/influxdb/config:/etc/influxdb2
+
+
+ENV  DOCKER_INFLUXDB_INIT_MODE=setup
+ENV  DOCKER_INFLUXDB_INIT_USERNAME=admin 
+ENV  DOCKER_INFLUXDB_INIT_PASSWORD=12345678
+ENV  DOCKER_INFLUXDB_INIT_ORG=org
+ENV  DOCKER_INFLUXDB_INIT_BUCKET=bucket
