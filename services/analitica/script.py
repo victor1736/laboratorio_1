@@ -27,9 +27,8 @@ async def datos():
     
 if __name__ == "__main__":
     bucket = 'bucket'
-    token_influx = 'q0-75fMnFCvpLU_UP_LqtdhbJcus5TYVKqFmMQfUB2saIVkVnClwSWon-SwJwohSDj_ue5smlAt4F9QyGCSnVg=='
-    url_s ="http://172.29.0.4:8086/"
-    client = InfluxDBClient(url=url_s, token = token_influx, org="org")
+    token_influx = 'k9_G4H6JMyl33AFu9FOXgdwsCVBDFlkXzkoYH72qM1GR70RHcgwJcxMfivBY2oUX1LV1ee_DOzjWyQG8AS4TUA=='
+    client = InfluxDBClient(url="http://172.29.0.2:8086", token=token_influx, org="org")
     write_api = client.write_api(write_options=SYNCHRONOUS)
     query_api = client.query_api()
     while(True):
@@ -41,5 +40,4 @@ if __name__ == "__main__":
         p2 = Point("my_measurement").tag("location", "Cali").field("humidity", hum)
         write_api.write(bucket=bucket, record=p2)
         print(f'Temperatura: {temp} \nPresion atmosferica: {pres} \nHumedad: {hum}')
-     
-        time.sleep(60)
+        time.sleep(20)
