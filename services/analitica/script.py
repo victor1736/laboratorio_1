@@ -27,7 +27,7 @@ async def datos():
     
 if __name__ == "__main__":
     bucket = 'bucket'
-    token_influx = 'k9_G4H6JMyl33AFu9FOXgdwsCVBDFlkXzkoYH72qM1GR70RHcgwJcxMfivBY2oUX1LV1ee_DOzjWyQG8AS4TUA=='
+    token_influx = 'QaEqXsb8G5iYdNPa019jAYPKeA81gwqaVA4LS3QzhVHlP3u_9YpwdQGCgA8XZ7r3-VpJJ3xvwc8LSmE3QAOgiA=='
     client = InfluxDBClient(url="http://172.29.0.2:8086", token=token_influx, org="org")
     write_api = client.write_api(write_options=SYNCHRONOUS)
     query_api = client.query_api()

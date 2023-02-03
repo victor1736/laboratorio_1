@@ -9,7 +9,6 @@ RUN pip install requests
 
 RUN pip install influxdb-client
 
-EXPOSE 3000
 
 EXPOSE 8086
 
