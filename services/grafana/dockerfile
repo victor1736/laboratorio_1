@@ -1,6 +1,5 @@
 FROM grafana/grafana:9.3.6
 
-EXPOSE 3000:3000
     
 VOLUME ./grafana:/var/lib/grafana
 

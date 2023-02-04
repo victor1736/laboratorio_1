@@ -1,6 +1,6 @@
 FROM influxdb:latest
 
-EXPOSE 8086:8086
+
 
 VOLUME ./data/influxdb/data:/var/lib/influxdb2
 
